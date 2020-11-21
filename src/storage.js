@@ -35,5 +35,6 @@ const setEnv = (newEnv) => {
         store.set("envs", envs)
     }
 }
+const clearEnvs = () => store.clear()
 
-export {getEnvs, setEnv} 
+export {getEnvs, setEnv, clearEnvs} 
