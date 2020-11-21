@@ -1,38 +1,50 @@
 import { getEnvs, setEnv } from "./storage.js"
 
-const newEnvBtn = document.getElementById("newEnvBtn")
-const newEnvModal = document.getElementById("newEnvModal")
-const newEnvCloseBtn = document.getElementById("newEnvCloseBtn")
 const addEnvBtn = document.getElementById("addEnvBtn")
+const confirmAddEnvBtn = document.getElementById("confirmAddEnvBtn")
+const addEnvModal = document.getElementById("addEnvModal")
+const addEnvCloseBtn = document.getElementById("addEnvCloseBtn")
 
 const closeNewEnv = () => {
-    let clsAtt = newEnvModal.getAttribute("class")
-    newEnvModal.setAttribute("class", clsAtt.replace(" is-active", ""))
+    let clsAtt = addEnvModal.getAttribute("class");
+    addEnvModal.setAttribute("class", clsAtt.replace(" is-active", ""));
 }
 
-newEnvBtn.onclick = () => {
-    let clsAtt = newEnvModal.getAttribute("class")
-    newEnvModal.setAttribute("class", clsAtt+" is-active")
+const loadEnvList = () => {
+    let envs = getEnvs();
+    let envList = document.getElementById("envsMenuList");
+    envList.innerHTML = "";
+    envs.forEach((env) => {
+        envList.innerHTML += `<li><a>${env.name}</a></li>`;
+    })
 }
 
-newEnvCloseBtn.onclick = closeNewEnv
+loadEnvList()
 
 addEnvBtn.onclick = () => {
-    let envList = document.getElementById("envsMenuList");
+    let clsAtt = addEnvModal.getAttribute("class");
+    addEnvModal.setAttribute("class", clsAtt + " is-active");
+}
+
+addEnvCloseBtn.onclick = closeNewEnv
+
+confirmAddEnvBtn.onclick = () => {
     let newEnvName = document.getElementById("newEnvName").value;
     let newEnvTenantId = document.getElementById("newEnvTenantId").value;
     let newEnv = {
         name: newEnvName,
         tenantId: newEnvTenantId
-    }
-    setEnv(newEnv)
-
-    document.getElementById("newEnvName").value = null;
-    envList.innerHTML += `<li><a>${newEnvName}</a></li>`;
+    };
+    setEnv(newEnv);
+    loadEnvList();
     closeNewEnv();
-    console.log(getEnvs())
 }
 
+
+
+//               //
+//  MOCKED DATA  //
+//               //
 const tooltip1 = document.getElementById("tooltip1")
 var tooltipData = "'cluster',\n'more_dir',\n's3a://mocked/project/data/another_dir_in_s3/2014/data/{pattern*.csv,pattern*/pattern*.csv}',\n's3a://mocked/project/parquet/another_dir_in_s3/more_dir',\n'other_param'"
 tooltip1.setAttribute("data-tooltip", tooltipData)
