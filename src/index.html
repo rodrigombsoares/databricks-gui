@@ -115,6 +115,7 @@
     </div>
     <!-- CONTENT -->
     <div class="columns is-gapless is-centered">
+      <!-- LEFT COLUMN (MENU) -->
       <div class="column is-one-quarter has-text-centered">
         <button id="addEnvBtn" class="button is-primary">
           Add Environment +
@@ -122,14 +123,15 @@
         <!-- ENVS MENU -->
         <aside class="menu">
           <p class="menu-label">Environments</p>
-          <ul class="menu-list" id="envsMenuList">
-            <li><a>Test</a></li>
-          </ul>
+          <ul class="menu-list" id="envsMenuList"></ul>
         </aside>
       </div>
+      <!-- DIVIDER -->
       <div class="is-divider-vertical"></div>
+      <!-- RIGHT COLUMN (CONTENT) -->
       <div class="column">
-        <div class="tabs is-boxed">
+        <!-- TABS -->
+        <div class="tabs is-boxed mb-0">
           <ul>
             <li class="is-active">
               <a>
@@ -143,6 +145,7 @@
             </li>
           </ul>
         </div>
+        <h6 id="envNameTitle" class="title is-6 mb-1"></h6>
         <!-- TABLE DISPLAY RUNS -->
         <table class="table is-fullwidth is-hoverable">
           <thead>
