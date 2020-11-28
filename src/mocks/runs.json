@@ -1,0 +1,243 @@
+[
+    {
+        "job_id": 35,
+        "run_id": 30,
+        "number_in_job": 1,
+        "original_attempt_run_id": 30,
+        "state": {
+            "life_cycle_state": "TERMINATED",
+            "result_state": "SUCCESS",
+            "state_message": ""
+        },
+        "task": {
+            "spark_jar_task": {
+                "jar_uri": "s3://mocked/project/jar/project-parquet-app.jar",
+                "main_class_name": "SparkPi",
+                "parameters": [
+                    "10"
+                ],
+                "run_as_repl": true
+            }
+        },
+        "cluster_spec": {
+            "new_cluster": {
+                "spark_version": "7.3.x-scala2.12",
+                "node_type_id": "<node-type>",
+                "enable_elastic_disk": false,
+                "num_workers": 1
+            },
+            "libraries": [
+                {
+                    "jar": "dbfs:/docs/sparkpi.jar"
+                }
+            ]
+        },
+        "cluster_instance": {
+            "cluster_id": "0412-165350-type465",
+            "spark_context_id": "5998195893958609953"
+        },
+        "start_time": 1523552029282,
+        "setup_duration": 211000,
+        "execution_duration": 33000,
+        "cleanup_duration": 2000,
+        "trigger": "ONE_TIME",
+        "creator_user_name": "...",
+        "run_name": "SparkPi JAR job",
+        "run_page_url": "<databricks-instance>/?o=3901135158661429#job/35/run/1",
+        "run_type": "JOB_RUN"
+    },
+    {
+        "job_id": 35,
+        "run_id": 31,
+        "number_in_job": 1,
+        "original_attempt_run_id": 30,
+        "state": {
+            "life_cycle_state": "TERMINATED",
+            "result_state": "FAILED",
+            "state_message": ""
+        },
+        "task": {
+            "spark_jar_task": {
+                "jar_uri": "s3://mocked/project/jar/project-parquet-app-v2.jar",
+                "main_class_name": "org.apache.spark.examples.SparkPi",
+                "parameters": [
+                    "10",
+                    "cluster",
+                    "more_dir"
+                ],
+                "run_as_repl": true
+            }
+        },
+        "cluster_spec": {
+            "new_cluster": {
+                "spark_version": "7.3.x-scala2.12",
+                "node_type_id": "<node-type>",
+                "enable_elastic_disk": false,
+                "num_workers": 1
+            },
+            "libraries": [
+                {
+                    "jar": "dbfs:/docs/sparkpi.jar"
+                }
+            ]
+        },
+        "cluster_instance": {
+            "cluster_id": "0412-165350-type465",
+            "spark_context_id": "5998195893958609953"
+        },
+        "start_time": 1523552029282,
+        "setup_duration": 211000,
+        "execution_duration": 33000,
+        "cleanup_duration": 2000,
+        "trigger": "ONE_TIME",
+        "creator_user_name": "...",
+        "run_name": "SparkPi JAR job",
+        "run_page_url": "<databricks-instance>/?o=3901135158661429#job/35/run/1",
+        "run_type": "JOB_RUN"
+    },
+    {
+        "job_id": 35,
+        "run_id": 32,
+        "number_in_job": 1,
+        "original_attempt_run_id": 30,
+        "state": {
+            "life_cycle_state": "TERMINATED",
+            "result_state": "SUCCESS",
+            "state_message": ""
+        },
+        "task": {
+            "spark_jar_task": {
+                "jar_uri": "s3://mocked/project/jar/project-parquet-app.jar",
+                "main_class_name": "org.apache.spark.examples.SparkPi",
+                "parameters": [
+                    "10"
+                ],
+                "run_as_repl": true
+            }
+        },
+        "cluster_spec": {
+            "new_cluster": {
+                "spark_version": "7.3.x-scala2.12",
+                "node_type_id": "<node-type>",
+                "enable_elastic_disk": false,
+                "num_workers": 1
+            },
+            "libraries": [
+                {
+                    "jar": "dbfs:/docs/sparkpi.jar"
+                }
+            ]
+        },
+        "cluster_instance": {
+            "cluster_id": "0412-165350-type465",
+            "spark_context_id": "5998195893958609953"
+        },
+        "start_time": 1523552029282,
+        "setup_duration": 211000,
+        "execution_duration": 33000,
+        "cleanup_duration": 2000,
+        "trigger": "ONE_TIME",
+        "creator_user_name": "...",
+        "run_name": "SparkPi JAR job",
+        "run_page_url": "<databricks-instance>/?o=3901135158661429#job/35/run/1",
+        "run_type": "JOB_RUN"
+    },
+    {
+        "job_id": 35,
+        "run_id": 33,
+        "number_in_job": 1,
+        "original_attempt_run_id": 30,
+        "state": {
+            "life_cycle_state": "RUNNING",
+            "state_message": ""
+        },
+        "task": {
+            "spark_jar_task": {
+                "jar_uri": "s3://mocked/project/jar/project-parquet-app.jar",
+                "main_class_name": "parquetApp",
+                "parameters": [
+                    "10",
+                    "cluster",
+                    "more_dir"
+                ],
+                "run_as_repl": true
+            }
+        },
+        "cluster_spec": {
+            "new_cluster": {
+                "spark_version": "7.3.x-scala2.12",
+                "node_type_id": "<node-type>",
+                "enable_elastic_disk": false,
+                "num_workers": 1
+            },
+            "libraries": [
+                {
+                    "jar": "dbfs:/docs/sparkpi.jar"
+                }
+            ]
+        },
+        "cluster_instance": {
+            "cluster_id": "0412-165350-type465",
+            "spark_context_id": "5998195893958609953"
+        },
+        "start_time": 1523552029282,
+        "setup_duration": 211000,
+        "execution_duration": 33000,
+        "cleanup_duration": 2000,
+        "trigger": "ONE_TIME",
+        "creator_user_name": "...",
+        "run_name": "SparkPi JAR job",
+        "run_page_url": "<databricks-instance>/?o=3901135158661429#job/35/run/1",
+        "run_type": "JOB_RUN"
+    },
+    {
+        "job_id": 35,
+        "run_id": 34,
+        "number_in_job": 1,
+        "original_attempt_run_id": 30,
+        "state": {
+            "life_cycle_state": "PENDING",
+            "state_message": "Waiting for cluster"
+        },
+        "task": {
+            "spark_jar_task": {
+                "jar_uri": "s3://mocked/project/jar/project-parquet-app.jar",
+                "main_class_name": "parquetApp",
+                "parameters": [
+                    "cluster",
+                    "more_dir",
+                    "s3a: //mocked/project/data/another_dir_in_s3/2014/data/{pattern*.csv,pattern*/pattern*.csv}",
+                    "s3a://mocked/project/parquet/another_dir_in_s3/more_dir",
+                    "other_param"
+                ],
+                "run_as_repl": true
+            }
+        },
+        "cluster_spec": {
+            "new_cluster": {
+                "spark_version": "7.3.x-scala2.12",
+                "node_type_id": "<node-type>",
+                "enable_elastic_disk": false,
+                "num_workers": 1
+            },
+            "libraries": [
+                {
+                    "jar": "dbfs:/docs/sparkpi.jar"
+                }
+            ]
+        },
+        "cluster_instance": {
+            "cluster_id": "0412-165350-type465",
+            "spark_context_id": "5998195893958609953"
+        },
+        "start_time": 1523552029282,
+        "setup_duration": 211000,
+        "execution_duration": 33000,
+        "cleanup_duration": 2000,
+        "trigger": "ONE_TIME",
+        "creator_user_name": "...",
+        "run_name": "SparkPi JAR job",
+        "run_page_url": "<databricks-instance>/?o=3901135158661429#job/35/run/1",
+        "run_type": "JOB_RUN"
+    }
+]

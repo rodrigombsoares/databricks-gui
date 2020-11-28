@@ -1,4 +1,5 @@
 import { getEnvs, setEnv } from './storage.js';
+import buildTableBody from './runs-list.js';
 
 const addEnvBtn = document.getElementById('addEnvBtn');
 const confirmAddEnvBtn = document.getElementById('confirmAddEnvBtn');
@@ -13,6 +14,7 @@ const closeNewEnv = () => {
 const loadEnv = (envName) => {
   const envNameTitle = document.getElementById('envNameTitle');
   envNameTitle.textContent = envName;
+  buildTableBody(envName);
 };
 
 const loadEnvList = () => {
