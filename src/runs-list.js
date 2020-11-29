@@ -1,4 +1,4 @@
-import { clearNode } from './utils.js';
+import { clearNode } from './utils/utils.js';
 
 const runsJson = require('./mocks/runs.json');
 

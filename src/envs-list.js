@@ -1,5 +1,5 @@
 import { getEnvs, setEnv, deleteEnv } from './storage.js';
-import { clearNode, clearEventListener } from './utils.js';
+import { clearNode, clearEventListener } from './utils/utils.js';
 import buildTableBody from './runs-list.js';
 
 const addEnvBtn = document.getElementById('addEnvBtn');

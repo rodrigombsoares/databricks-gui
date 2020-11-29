@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 class ValidationError extends Error {
   constructor(message) {
     super(message);
@@ -6,4 +5,5 @@ class ValidationError extends Error {
   }
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export { ValidationError };

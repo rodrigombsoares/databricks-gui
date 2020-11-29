@@ -1,4 +1,4 @@
-import { ValidationError } from './errors.js';
+import { ValidationError } from './utils/errors.js';
 
 const Store = require('electron-store');
 
