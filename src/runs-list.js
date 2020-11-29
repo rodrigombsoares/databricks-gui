@@ -1,3 +1,5 @@
+import { clearNode } from './utils.js';
+
 const runsJson = require('./mocks/runs.json');
 
 const fetchRuns = () => runsJson;
@@ -84,6 +86,7 @@ const buildRunButtonCell = (runId) => {
   runCell.appendChild(runButton);
   return runCell;
 };
+
 const buildRunRow = (run) => {
   const tableRow = document.createElement('tr');
   const rowHeader = buildRowheader(run.state);
@@ -105,9 +108,7 @@ const buildTableBody = (envName) => {
   console.log(envName);
   const runsTable = document.getElementById('listRunsTable');
   // clear table
-  while (runsTable.lastElementChild) {
-    runsTable.removeChild(runsTable.lastElementChild);
-  }
+  clearNode(runsTable);
   // fetch runs and build table
   const runs = fetchRuns();
   runs.forEach((run) => runsTable.appendChild(buildRunRow(run)));

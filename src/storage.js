@@ -36,5 +36,13 @@ const setEnv = (newEnv) => {
   }
 };
 const clearEnvs = () => store.clear();
+const deleteEnv = (envName) => {
+  let envs = store.get('envs');
+  envs = envs.filter((env) => env.name !== envName);
+  console.log(envs);
+  store.set('envs', envs);
+};
 
-export { getEnvs, setEnv, clearEnvs };
+export {
+  getEnvs, setEnv, clearEnvs, deleteEnv,
+};
