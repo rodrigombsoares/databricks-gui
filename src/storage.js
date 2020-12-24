@@ -26,7 +26,11 @@ const schema = {
 const store = new Store({ schema, clearInvalidConfig: true });
 
 const getEnvs = () => store.get('envs', []);
-const setEnv = (newEnv) => {
+const setEnv = (newEnvName, newEnvTenantId) => {
+  const newEnv = {
+    name: newEnvName,
+    tenantId: newEnvTenantId,
+  };
   let envs = getEnvs();
   if (envs.some((e) => e.name === newEnv.name)) {
     throw new ValidationError(`${newEnv.name} env already exists`);

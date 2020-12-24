@@ -50,11 +50,7 @@ addEnvCloseBtn.onclick = closeNewEnv;
 confirmAddEnvBtn.onclick = () => {
   const newEnvName = document.getElementById('newEnvName').value;
   const newEnvTenantId = document.getElementById('newEnvTenantId').value;
-  const newEnv = {
-    name: newEnvName,
-    tenantId: newEnvTenantId,
-  };
-  setEnv(newEnv);
+  setEnv(newEnvName, newEnvTenantId);
   loadEnvList();
   closeNewEnv();
 };

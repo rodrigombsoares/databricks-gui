@@ -105,7 +105,6 @@ const buildRunRow = (run) => {
 };
 
 const buildTableBody = (envName) => {
-  console.log(envName);
   const runsTable = document.getElementById('listRunsTable');
   // clear table
   clearNode(runsTable);

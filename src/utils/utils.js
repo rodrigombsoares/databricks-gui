@@ -10,4 +10,4 @@ const clearEventListener = (node) => {
   oldNode.parentNode.replaceChild(newNode, oldNode);
   return newNode;
 };
-export { clearNode, clearEventListener };
+export { clearNode, clearEventListener }
