@@ -2,7 +2,12 @@ import { clearNode } from './utils/utils.js';
 
 const runsJson = require('./mocks/runs.json');
 
-const fetchRuns = () => runsJson;
+const fetchRuns = (envName) => {
+  if (envName) {
+    return runsJson;
+  }
+  return null;
+};
 
 const buildRowheader = (runState) => {
   const statesClasses = {
@@ -109,7 +114,7 @@ const buildTableBody = (envName) => {
   // clear table
   clearNode(runsTable);
   // fetch runs and build table
-  const runs = fetchRuns();
+  const runs = fetchRuns(envName);
   runs.forEach((run) => runsTable.appendChild(buildRunRow(run)));
 };
 

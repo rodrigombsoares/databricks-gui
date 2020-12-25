@@ -1,4 +1,4 @@
-import { ValidationError } from './utils/errors.js';
+import { ValidationError } from './errors.js';
 
 const Store = require('electron-store');
 
@@ -26,6 +26,7 @@ const schema = {
 const store = new Store({ schema, clearInvalidConfig: true });
 
 const getEnvs = () => store.get('envs', []);
+
 const setEnv = (newEnvName, newEnvTenantId) => {
   const newEnv = {
     name: newEnvName,
@@ -39,12 +40,16 @@ const setEnv = (newEnvName, newEnvTenantId) => {
     store.set('envs', envs);
   }
 };
+
 const clearEnvs = () => store.clear();
-const deleteEnv = (envName) => {
+
+const deleteEnv = (envName, callback) => {
   let envs = store.get('envs');
   envs = envs.filter((env) => env.name !== envName);
-  console.log(envs);
   store.set('envs', envs);
+  if (typeof callback === 'function') {
+    callback();
+  }
 };
 
 export {

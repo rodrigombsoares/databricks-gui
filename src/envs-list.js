@@ -1,23 +1,18 @@
-import { getEnvs, setEnv, deleteEnv } from './storage.js';
+import { getEnvs, deleteEnv } from './utils/storage.js';
 import { clearNode, clearEventListener } from './utils/utils.js';
 import buildTableBody from './runs-list.js';
+import { createNewEnv, openNewEnvModal, closeNewEnvModal } from './new-env.js';
 
-const addEnvBtn = document.getElementById('addEnvBtn');
-const confirmAddEnvBtn = document.getElementById('confirmAddEnvBtn');
-const addEnvModal = document.getElementById('addEnvModal');
+const newEnvBtn = document.getElementById('addEnvBtn');
+const confirmNewEnvBtn = document.getElementById('confirmAddEnvBtn');
 const addEnvCloseBtn = document.getElementById('addEnvCloseBtn');
-
-const closeNewEnv = () => {
-  const clsAtt = addEnvModal.getAttribute('class');
-  addEnvModal.setAttribute('class', clsAtt.replace(' is-active', ''));
-};
 
 const loadEnv = (envName, loadEnvList) => {
   const envNameTitle = document.getElementById('envNameTitle');
   let deleteButton = document.getElementById('deleteEnv');
   deleteButton = clearEventListener(deleteButton);
   deleteButton.addEventListener('click', () => {
-    deleteEnv(envName);
+    deleteEnv(envName, () => loadEnv(getEnvs()[0].name, loadEnvList));
     loadEnvList();
   });
   envNameTitle.textContent = envName;
@@ -27,8 +22,9 @@ const loadEnv = (envName, loadEnvList) => {
 const loadEnvList = () => {
   const envs = getEnvs();
   const envList = document.getElementById('envsMenuList');
-  // clear env list
+  // Clear env list
   clearNode(envList);
+  // Rebuild env list
   envs.forEach((env) => {
     const envItem = document.createElement('li');
     const envLink = document.createElement('a');
@@ -40,19 +36,8 @@ const loadEnvList = () => {
   });
 };
 
-addEnvBtn.onclick = () => {
-  const clsAtt = addEnvModal.getAttribute('class');
-  addEnvModal.setAttribute('class', `${clsAtt} is-active`);
-};
+newEnvBtn.onclick = openNewEnvModal;
+addEnvCloseBtn.onclick = closeNewEnvModal;
+confirmNewEnvBtn.onclick = () => createNewEnv(loadEnvList);
 
-addEnvCloseBtn.onclick = closeNewEnv;
-
-confirmAddEnvBtn.onclick = () => {
-  const newEnvName = document.getElementById('newEnvName').value;
-  const newEnvTenantId = document.getElementById('newEnvTenantId').value;
-  setEnv(newEnvName, newEnvTenantId);
-  loadEnvList();
-  closeNewEnv();
-};
-
-export default loadEnvList;
+export { loadEnvList, loadEnv };
