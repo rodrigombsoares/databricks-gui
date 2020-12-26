@@ -1,4 +1,5 @@
 import { setEnv } from './utils/storage.js';
+import { setSecretToken } from './utils/secretToken.js';
 
 const addEnvModal = document.getElementById('addEnvModal');
 
@@ -8,11 +9,17 @@ const closeNewEnvModal = () => {
 };
 
 const createNewEnv = (loadEnvList) => {
-  const newEnvName = document.getElementById('newEnvName').value;
-  const newEnvTenantId = document.getElementById('newEnvTenantId').value;
-  setEnv(newEnvName, newEnvTenantId);
-  loadEnvList();
-  closeNewEnvModal();
+  try {
+    const newEnvName = document.getElementById('newEnvName').value;
+    const newEnvTenantId = document.getElementById('newEnvTenantId').value;
+    const newEnvSecretToken = document.getElementById('newEnvSecretToken').value;
+    setEnv(newEnvName, newEnvTenantId);
+    setSecretToken(newEnvName, newEnvSecretToken);
+    loadEnvList();
+    closeNewEnvModal();
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const openNewEnvModal = () => {

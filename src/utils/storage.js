@@ -27,6 +27,8 @@ const store = new Store({ schema, clearInvalidConfig: true });
 
 const getEnvs = () => store.get('envs', []);
 
+const getEnv = (envName) => store.get('envs', []).find((env) => env.name === envName).tenantId;
+
 const setEnv = (newEnvName, newEnvTenantId) => {
   const newEnv = {
     name: newEnvName,
@@ -53,5 +55,5 @@ const deleteEnv = (envName, callback) => {
 };
 
 export {
-  getEnvs, setEnv, clearEnvs, deleteEnv,
+  getEnv, getEnvs, setEnv, clearEnvs, deleteEnv,
 };

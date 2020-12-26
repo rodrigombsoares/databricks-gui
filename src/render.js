@@ -5,4 +5,4 @@ import { getEnvs } from './utils/storage.js';
 // clearEnvs() // Use to clear envs
 
 loadEnvList();
-loadEnv(getEnvs()[0].name, loadEnvList);
+loadEnv(getEnvs() === [] ? null : getEnvs()[0].name, loadEnvList);

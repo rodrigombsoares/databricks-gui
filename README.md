@@ -12,7 +12,7 @@ As we are not robots to read JSON, this Electron App wraps Databricks API and di
 - [x] "Create new env" ui
 - [x] "Create new env" storage
 - [x] List runs for env (mocked)
-- [ ] Secure store secret token
+- [x] Secure store secret token
 - [ ] Single run display (json to dropdown)
 - [ ] Fetch real data from databricks api
 - [ ] Update CSS

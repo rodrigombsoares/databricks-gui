@@ -1,9 +1,14 @@
 import { clearNode } from './utils/utils.js';
+import { getEnv } from './utils/storage.js';
+import { getSecretToken } from './utils/secretToken.js';
 
 const runsJson = require('./mocks/runs.json');
 
 const fetchRuns = (envName) => {
   if (envName) {
+    console.log(envName);
+    console.log(getEnv(envName));
+    getSecretToken(envName).then((s) => console.log(s));
     return runsJson;
   }
   return null;
@@ -113,9 +118,11 @@ const buildTableBody = (envName) => {
   const runsTable = document.getElementById('listRunsTable');
   // clear table
   clearNode(runsTable);
-  // fetch runs and build table
-  const runs = fetchRuns(envName);
-  runs.forEach((run) => runsTable.appendChild(buildRunRow(run)));
+  if (envName) {
+    // fetch runs and build table
+    const runs = fetchRuns(envName);
+    runs.forEach((run) => runsTable.appendChild(buildRunRow(run)));
+  }
 };
 
 export default buildTableBody;

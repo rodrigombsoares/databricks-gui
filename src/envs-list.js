@@ -1,4 +1,5 @@
 import { getEnvs, deleteEnv } from './utils/storage.js';
+import { deleteSecretToken } from './utils/secretToken.js';
 import { clearNode, clearEventListener } from './utils/utils.js';
 import buildTableBody from './runs-list.js';
 import { createNewEnv, openNewEnvModal, closeNewEnvModal } from './new-env.js';
@@ -11,11 +12,17 @@ const loadEnv = (envName, loadEnvList) => {
   const envNameTitle = document.getElementById('envNameTitle');
   let deleteButton = document.getElementById('deleteEnv');
   deleteButton = clearEventListener(deleteButton);
-  deleteButton.addEventListener('click', () => {
-    deleteEnv(envName, () => loadEnv(getEnvs()[0].name, loadEnvList));
-    loadEnvList();
-  });
-  envNameTitle.textContent = envName;
+  if (envName) {
+    deleteButton.addEventListener('click', () => {
+      deleteSecretToken(envName);
+      deleteEnv(envName);
+      loadEnv(getEnvs() === [] ? null : getEnvs()[0].name, loadEnvList);
+      loadEnvList();
+    });
+    envNameTitle.textContent = envName;
+  } else {
+    envNameTitle.textContent = '';
+  }
   buildTableBody(envName);
 };
 
